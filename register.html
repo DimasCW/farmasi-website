@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="loginadmin.css">
+</head>
+
+<body>
+  <section class="container">
+    <div class="login-container">
+      <div class="circle circle-one"></div>
+      <div class="form-container">
+        <h1 class="opacity">REGISTER</h1>
+        <form id="register-form">
+          <input type="text" placeholder="FULL NAME" id="full-name" required />
+          <input type="date" placeholder="DATE OF BIRTH" id="dob" required />
+          <input type="email" placeholder="EMAIL" id="email" required />
+          <input type="text" placeholder="USERNAME" id="new-username" required />
+          <input type="password" placeholder="PASSWORD" id="new-password" required />
+          <button class="opacity" type="submit">REGISTER</button>
+          <button class="opacity" type="button" id="back-btn">BACK</button>
+        </form>
+      </div>
+      <div class="circle circle-two"></div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const fullName = document.getElementById('full-name').value;
+      const dob = document.getElementById('dob').value;
+      const email = document.getElementById('email').value;
+      const newUsername = document.getElementById('new-username').value;
+      const newPassword = document.getElementById('new-password').value;
+
+      // Simpan data akun ke localStorage
+      const userData = {
+        fullName: fullName,
+        dob: dob,
+        email: email,
+        password: newPassword
+      };
+
+
+      // Simpan data akun ke localStorage
+      localStorage.setItem(newUsername, newPassword);
+      alert('Registration successful! You can now log in.');
+      window.location.href = 'index.html'; // Kembali ke halaman login
+    });
+
+    document.getElementById('back-btn').addEventListener('click', function () {
+      window.location.href = 'index.html'; // Arahkan ke halaman login
+    });
+  </script>
+</body>
+
+</html>
